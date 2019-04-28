@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="ekranLogowania" prefHeight="305.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projektkino.FXMLLogowanieController">
+   <children>
+      <Button fx:id="bZaloguj" layoutX="204.0" layoutY="188.0" mnemonicParsing="false" onAction="#zalogujAction" text="Zaloguj" />
+      <TextField fx:id="textLogin" layoutX="156.0" layoutY="78.0" />
+      <Label fx:id="lTytul" layoutX="117.0" layoutY="33.0" text="Logowanie do bazy danych">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lLogin" layoutX="68.0" layoutY="82.0" text="Login" />
+      <Label fx:id="lHaslo" layoutX="68.0" layoutY="136.0" text="Hasło" />
+      <Label fx:id="lBlad" layoutX="117.0" layoutY="239.0" text="Błędne dane logowania. Spróbuj ponownie!" textFill="RED" visible="false" />
+      <PasswordField fx:id="textHaslo" layoutX="156.0" layoutY="132.0" />
+   </children>
+</AnchorPane>

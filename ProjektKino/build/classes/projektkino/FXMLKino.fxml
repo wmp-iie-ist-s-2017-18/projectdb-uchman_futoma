@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane prefHeight="760.0" prefWidth="1078.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projektkino.FXMLKinoController">
+   <content>
+      <AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1400.0">
+          <children>
+            <Button fx:id="buttonLoad" layoutX="835.0" layoutY="550.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Odśwież" />
+            <TabPane fx:id="TabPaneDB" layoutX="258.0" layoutY="38.0" prefHeight="465.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabZamowienie" text="Rezerwacje">
+                     <content>
+                        <TableView fx:id="tableRezerwacje" onMousePressed="#fillRezerwacje" prefHeight="445.0" prefWidth="679.0">
+                          <columns>
+                              <TableColumn fx:id="columnNazwisko" prefWidth="218.0" text="nazwisko" />
+                            <TableColumn fx:id="columnNumer" prefWidth="148.0" text="nr telefonu" />
+                              <TableColumn fx:id="columnIleBiletow" minWidth="0.0" prefWidth="84.0" text="ilość biletów" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                <Tab fx:id="tabSeans" text="Seans">
+                     <content>
+                        <TableView fx:id="tableSeans" onMousePressed="#fillSeans" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="columnDzien" prefWidth="75.0" text="dzień" />
+                            <TableColumn fx:id="columnGodzina" prefWidth="75.0" text="godzina" />
+                              <TableColumn fx:id="columnWolneMiejsca" prefWidth="113.0" text="wolne miejsca" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabFilm" text="Film">
+                     <content>
+                        <TableView fx:id="tableFilm" onMousePressed="#fillFilm" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="columnTytul" prefWidth="148.0" text="tytuł" />
+                            <TableColumn fx:id="columnGatunek" prefWidth="101.0" text="gatunek" />
+                              <TableColumn fx:id="columnRezyser" prefWidth="116.0" text="reżyser" />
+                              <TableColumn fx:id="columnCzasTrwania" minWidth="4.0" prefWidth="90.0" text="czas trwania" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabSale" text="Sale">
+                     <content>
+                        <TableView fx:id="tableSale" onMousePressed="#fillSale" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="columnNrSali" prefWidth="75.0" text="Numer sali" />
+                            <TableColumn fx:id="columnPojemnosc" prefWidth="75.0" text="Pojemność" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabWszystko" text="Zatwierdzone rezerwacje">
+                     <content>
+                        <TableView fx:id="tableWszystko" minWidth="500.0" prefHeight="436.0" prefWidth="743.0">
+                           <columns>
+                              <TableColumn fx:id="columnNazwisko1" prefWidth="159.0" text="nazwisko" />
+                              <TableColumn fx:id="columnNumer1" prefWidth="154.0" text="nr telefonu" />
+                              <TableColumn fx:id="columnIleBiletow1" minWidth="0.0" prefWidth="77.0" text="ilość biletów" />
+                              <TableColumn fx:id="columnDzien1" minWidth="7.0" text="dzień" />
+                              <TableColumn fx:id="columnGodzina1" prefWidth="51.0" text="godzina" />
+                              <TableColumn fx:id="columnTytul1" prefWidth="121.0" text="tytuł" />
+                              <TableColumn fx:id="columnCzasTrwania1" minWidth="0.0" prefWidth="78.0" text="czas trwania" />
+                              <TableColumn fx:id="columnNrSali1" prefWidth="69.0" text="Numer sali" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <AnchorPane fx:id="paneRezerwacja" layoutX="14.0" layoutY="49.0" prefHeight="336.0" prefWidth="199.0">
+               <children>
+                  <Label fx:id="labelRezerwacja" layoutX="56.0" layoutY="6.0" text="Rezerwacja" />
+                  <GridPane fx:id="gridpaneRezerwacja" layoutY="34.0" prefHeight="288.0" prefWidth="210.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="104.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="106.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="labelNazwisko" text="Nazwisko" />
+                        <Label fx:id="labelNumerTelefonu" text="Numer telefonu" GridPane.rowIndex="1" />
+                        <Label fx:id="labelIloscBiletow" text="Ilość biletów" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="comboboxFilm" prefWidth="150.0" promptText="Film" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="comboboxDzien" prefWidth="150.0" promptText="Dzień" GridPane.rowIndex="4" />
+                        <TextField fx:id="textfieldNazwisko" GridPane.columnIndex="1" />
+                        <TextField fx:id="textfieldNrtel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textfieldIloscBiletow" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="buttonZatwierdzRezerwacje" mnemonicParsing="false" onAction="#dodajRezerwacje" text="Zatwierdź" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="comboboxGodzina" prefWidth="150.0" promptText="Godzina" GridPane.rowIndex="5" />
+                        <Button fx:id="buttonAktualizujRezerwacja" mnemonicParsing="false" onAction="#przyciskAktualizujRezerwacja" text="Aktualizuj" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneFilm" layoutX="14.0" layoutY="413.0" prefHeight="324.0" prefWidth="210.0">
+               <children>
+                  <Label fx:id="labelFilm" layoutX="77.0" layoutY="6.0" text="Film" />
+                  <GridPane fx:id="gridpaneFilm" layoutY="41.0" prefHeight="241.0" prefWidth="210.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="labelTytul" text="Tytuł" />
+                        <Label fx:id="labelGatunek" text="Gatunek" GridPane.rowIndex="1" />
+                        <Label fx:id="labelRezyser" text="Reżyser" GridPane.rowIndex="2" />
+                        <Label fx:id="labelCzasTrwania" text="Czas trwania" GridPane.rowIndex="3" />
+                        <TextField fx:id="textfieldTytul" prefHeight="25.0" prefWidth="107.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="textfieldGatunek" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textfieldRezyser" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="textfieldCzasTrwania" promptText="MINUTY" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="buttonZatwierdzFilm" mnemonicParsing="false" onAction="#dodajFilm" text="Zatwierdź" GridPane.rowIndex="5" />
+                        <Button fx:id="buttonAktualizujFilm" mnemonicParsing="false" onAction="#przyciskAktualizujFilm" text="Aktualizuj" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <Separator fx:id="separatorPionowy1" layoutX="246.0" layoutY="49.0" orientation="VERTICAL" prefHeight="688.0" prefWidth="0.0" />
+            <Button fx:id="buttonUsunZaznaczone" layoutX="835.0" layoutY="654.0" mnemonicParsing="false" onAction="#usunRezerwacje" text="Usuń zaznaczone" />
+            <Separator layoutX="10.0" layoutY="392.0" prefHeight="3.0" prefWidth="236.0" />
+            <Button fx:id="buttonWyczyscPola" layoutX="835.0" layoutY="584.0" mnemonicParsing="false" onAction="#wyczyscPola" text="Wyczyść pola" />
+            <Button fx:id="buttonWyjscie" layoutX="835.0" layoutY="618.0" mnemonicParsing="false" onAction="#opuscAplikacje" text="Wyjście" />
+            <Separator layoutX="249.0" layoutY="518.0" prefHeight="4.0" prefWidth="1100.0" />
+            <Label fx:id="labelSeans" layoutX="355.0" layoutY="533.0" text="Seans" />
+            <Label fx:id="labelSala" layoutX="617.0" layoutY="533.0" text="Sala" />
+            <GridPane fx:id="gridpaneSeans" layoutX="270.0" layoutY="564.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="73.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="127.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="labelDzien" text="Dzień" />
+                  <DatePicker fx:id="dtDataSeansu" promptText="Wybierz ..." GridPane.columnIndex="1" />
+                  <Label fx:id="labelGodzina" text="Godzina" GridPane.rowIndex="1" />
+                  <TextField fx:id="textfieldGodzina" promptText="GG:MM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="comboboxSala" prefWidth="150.0" promptText="Sala" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboboxFilm1" prefWidth="150.0" promptText="Film" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonSeans" mnemonicParsing="false" onAction="#dodajSeans" text="Zatwierdź" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonAktualizujSeans" mnemonicParsing="false" onAction="#przyciskAktualizujSeans" text="Aktualizuj" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridpaneSala" layoutX="528.0" layoutY="564.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="81.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="119.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="textfieldNumerSali" GridPane.columnIndex="1" />
+                  <TextField fx:id="textfieldIloscMiejsc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="labelNumerSali" text="Numer" />
+                  <Label fx:id="labelIloscMiejsc" text="Pojemność" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonZatwierdzSala" mnemonicParsing="false" onAction="#dodajSale" text="Zatwierdź" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonAktualizujSala" mnemonicParsing="false" onAction="#przyciskAktualizujSala" text="Aktualizuj" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+          </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
